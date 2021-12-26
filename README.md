@@ -1,2 +1,2 @@
-# companion
+# companion-api
 Travel application
