@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i
+  has_many :trips
   validates :firstName, presence: true
   validates :lastName, presence: true
   validates :userName, presence: true, uniqueness: { case_sensitive: false }, length: { minimum: 3, maximum: 25 }
