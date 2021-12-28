@@ -1,9 +1,9 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Trips</h1>
-
 <div id="trips">
   <% @trips.each do |trip| %>
+    <h2><%= trip.user.firstName if trip.user %>'s trip</h2>
     <%= render trip %>
     <p>
       <%= link_to "Show this trip", trip %>
