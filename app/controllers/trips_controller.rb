@@ -22,7 +22,8 @@ class TripsController < ApplicationController
   # POST /trips or /trips.json
   def create
     @trip = Trip.new(trip_params)
-
+    # TODO: temporary hardcoded, implement Auth and remove temp code for assoc User
+    @trip.user = User.first
     respond_to do |format|
       if @trip.save
         format.html { redirect_to trip_url(@trip), notice: "Trip was successfully created." }
