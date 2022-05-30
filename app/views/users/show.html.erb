@@ -1,4 +1,10 @@
-<p style="color: green"><%= notice %></p>
+<div style="color: white"><%= notice %></div>
+
+<% if logged_in? %>
+  <%= tag.h2 "Hello #{current_user.firstName}", style: "color: white" %>
+  <!--  TODO: add logout path and delete method -->
+  <%= link_to 'Logout', logout_path %>
+<% end %>
 
 <%= render @user %>
 
