@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
   before_action :set_trip, only: %i[ show edit update destroy ]
-
+  before_action :require_user
   # GET /trips or /trips.json
   def index
     @trips = Trip.all
@@ -23,7 +23,7 @@ class TripsController < ApplicationController
   def create
     @trip = Trip.new(trip_params)
     # TODO: temporary hardcoded, implement Auth and remove temp code for assoc User
-    @trip.user = User.first
+    @trip.user = current_user
     respond_to do |format|
       if @trip.save
         format.html { redirect_to trip_url(@trip), notice: "Trip was successfully created." }
